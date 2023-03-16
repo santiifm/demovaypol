@@ -1,0 +1,34 @@
+<%= form_with(model: producto) do |form| %>
+  <% if producto.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(producto.errors.count, "error") %> prohibió que este producto se guarde:</h2>
+
+      <ul>
+        <% producto.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombreProd, "Nombre del Producto", style: "display: block" %>
+    <%= form.text_field :nombreProd%>
+  </div>
+
+  <%= form.hidden_field :creado_por, value: current_user.name %>
+
+  <div class="field">
+    <%= form.label :precio, style: "display: block" %>
+    <%= form.text_field :precio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stock, style: "display: block" %>
+    <%= form.number_field :stock %>
+  </div>
+
+  <div class="pt-3">
+    <%= form.submit "Actualizar Producto", type: "submit", :class=> "btn btn-dark mb-2" %>
+  </div>
+<% end %>

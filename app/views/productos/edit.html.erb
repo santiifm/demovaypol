@@ -1,0 +1,10 @@
+<div class="container text-center form-vaypol pt-2 pb-2">
+  <h1 style="color: #FFFFFF">Editing producto</h1>
+
+  <%= render "form", producto: @producto %>
+
+  <div>
+    <%= link_to "Mostrar este producto", @producto, class:"btn btn-dark btn-sm mb-1" %>
+    <%= link_to "Volver a productos", productos_path, class:"btn btn-dark btn-sm mb-1" %>
+  </div>
+</div>
